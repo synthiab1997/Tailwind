@@ -1,5 +1,5 @@
 {
-  "name": "tw",
+  "name": "Tailwind",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.14"
   }
 }
