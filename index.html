@@ -5,72 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Authentication - Social Media App</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js" defer></script>
+    <script type="module" src="/src/js/api/auth/login.js"></script>
+    <script type="module" src="/src/js/api/auth/register.js"></script>
+    <script type="module" src="/src/app.js"></script>
+    <script type="module" src="/src/js/api/constants.js"></script>
+    <script src="/src/js/script.js" defer></script>
+    <script type="module" src="/src/main.jsx"></script>
   </head>
-  <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-gray-100">
-    <header class="bg-white shadow-lg">
+  <body class="grid min-h-screen dark:bg-slate-800 grid-rows-[auto_1fr_auto] bg-gray-100">
+    <header class="bg-white dark:bg-slate-900 shadow-lg">
       <nav class="container mx-auto">
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <a href="/" class="flex items-center px-2 py-4">
             <img src="/images/noroff-logo.png" alt="Noroff logo" class="img" />
           </a>
           <div class="hidden items-center space-x-1 md:flex">
-            <a
-              href="/"
-              class="border-b-4 border-green-500 px-2 py-4 font-semibold text-green-500"
-              >Login</a
-            >
-            <a
-              href="/feed/"
-              class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-green-500"
-              >Feed</a
-            >
-            <a
-              href="/profile/"
-              class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-green-500"
-              >Profile</a
-            >
+            <a href="/" class="border-b-4 border-green-500 px-2 py-4 font-semibold text-green-500 dark:text-green-400">Login</a>
+            <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-green-500 dark:text-gray-300">Feed</a>
+            <a href="/profile/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-green-500 dark:text-gray-300">Profile</a>
           </div>
-          <div class="flex items-center md:hidden">
-            <button id="menu-btn">
-              <svg
-                class="h-6 w-6 text-gray-500 hover:text-green-500"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
+          <div class="flex items-center space-x-4">
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition">
+              <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" viewBox="0 0 20 20" fill="currentColor">
+                <path id="sun-icon" d="M10 4.5a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM10 14a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM15.364 7.364a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM5.343 12.657a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                <path id="moon-icon" class="hidden" d="M10 2a8 8 0 100 16c4.418 0 8-3.582 8-8S14.418 2 10 2z"/>
               </svg>
             </button>
           </div>
-        </div>
-        <div class="hidden" id="mobile-menu">
-          <ul>
-            <li>
-              <a
-                href="/"
-                class="block bg-green-500 px-2 py-4 text-sm font-semibold text-white"
-                >Login</a
-              >
-            </li>
-            <li>
-              <a
-                href="/feed/"
-                class="block px-2 py-4 text-sm transition duration-300 hover:bg-green-500 hover:text-white"
-                >Feed</a
-              >
-            </li>
-            <li>
-              <a
-                href="/profile/"
-                class="block px-2 py-4 text-sm transition duration-300 hover:bg-green-500 hover:text-white"
-                >Profile</a
-              >
-            </li>
-          </ul>
         </div>
       </nav>
     </header>
@@ -203,8 +165,8 @@
       </section>
     </main>
 
-    <footer class="bg-white py-5">
-      <p class="container mx-auto text-center">&copy; 2024 Social Media App</p>
+    <footer class="bg-white py-5 dark:bg-slate-900">
+      <p class="container mx-auto text-center text-gray-500 dark:text-slate-300">&copy; 2024 Social Media App</p>
     </footer>
 
     <script>
@@ -228,6 +190,6 @@
           loginBtn.classList.add("text-gray-500");
         }
       }
-    </script>
+    </script> 
   </body>
 </html>
