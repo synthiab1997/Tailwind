@@ -1,14 +1,15 @@
-import { API_BASE_URL } from "./constants.js";
+import { API_AUTH_LOGIN, API_KEY } from "../constants.js";
 
 async function loginUser(email, password) {
     const errorMessages = document.getElementById("errorMessages");
     const successMessages = document.getElementById("successMessages");
 
     try {
-        const response = await fetch(`${API_BASE_URL}/social/auth/login`, {
+        const response = await fetch(API_AUTH_LOGIN, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'x-api-key': API_KEY,  // Include the API key in the headers
             },
             body: JSON.stringify({ email, password }),
         });
@@ -18,13 +19,8 @@ async function loginUser(email, password) {
             const accessToken = data.token;
             localStorage.setItem("accessToken", accessToken);
 
-            // Extract and store userId if required
-            const userId = JSON.parse(atob(accessToken.split('.')[1])).sub;
-            localStorage.setItem('userId', userId);
-
-            // Display success message and redirect with delay
             successMessages.innerText = "Login successful! Redirecting...";
-            setTimeout(() => window.location.href = "posts.html", 800);
+            setTimeout(() => window.location.href = "profile.html", 800);  // Adjust redirection if needed
         } else {
             errorMessages.innerText = `Error: ${data.message}`;
         }
@@ -34,12 +30,11 @@ async function loginUser(email, password) {
     }
 }
 
-document.getElementById('loginForm')?.addEventListener('submit', (event) => {
+document.getElementById('login-form')?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
 
-    // Basic validation
     if (!email || !password) {
         document.getElementById("errorMessages").innerText = "Both email and password are required.";
         return;
@@ -47,5 +42,3 @@ document.getElementById('loginForm')?.addEventListener('submit', (event) => {
 
     loginUser(email, password);
 });
-
-
