@@ -1,200 +1,128 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authentication</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="/src/js/api/auth/login.js"></script>
-    <script type="module" src="/src/js/api/auth/register.js"></script>
-    <script type="module" src="/src/app.js"></script>
-    <script type="module" src="/src/js/api/constants.js"></script>
-    <script src="/src/js/script.js" defer></script>
-    <script type="module" src="/src/main.jsx"></script>
-  </head>
-  <body class="grid min-h-screen dark:bg-slate-800 grid-rows-[auto_1fr_auto] bg-gray-100">
-    <header class="bg-white dark:bg-slate-900 shadow-lg">
-      <nav class="container mx-auto">
-        <div class="flex justify-between items-center">
-          <a href="/" class="flex items-center px-2 py-4">
-            <img src="/images/noroff-logo.png" alt="Noroff logo" class="img" />
-          </a>
-          <div class="hidden items-center space-x-1 md:flex">
-            <a href="/" class="border-b-4 border-blue-500 px-2 py-4 font-semibold text-blue-500 dark:text-blue-400">Login</a>
-            <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Feed</a>
-            <a href="/profile/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Profile</a>
-          </div>
-          <div class="flex items-center space-x-4">
-            <!-- Dark Mode Toggle Button -->
-            <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition">
-              <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" viewBox="0 0 20 20" fill="currentColor">
-                <path id="sun-icon" d="M10 4.5a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM10 14a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM15.364 7.364a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM5.343 12.657a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
-                <path id="moon-icon" class="hidden" d="M10 2a8 8 0 100 16c4.418 0 8-3.582 8-8S14.418 2 10 2z"/>
-              </svg>
-            </button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="module" src="/src/js/api/auth/login.js"></script>
+  <script type="module" src="/src/js/api/auth/register.js"></script>
+  <script type="module" src="/app.js"></script>
+  <script type="module" src="/src/js/api/constants.js"></script>
+  <script src="/src/js/script.js" defer></script>
+</head>
+<body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-gray-100 dark:bg-slate-800 text-gray-100">
+  <header class="bg-white dark:bg-slate-900 shadow-lg">
+    <nav class="container mx-auto px-2 py-2">
+      <div class="flex justify-between items-center">
+        <a href="/" class="flex items-center px-2 py-4">
+          <img src="/images/noroff-logo.png" alt="Noroff logo" class="img" />
+        </a>
+        <div class="hidden items-center space-x-1 md:flex">
+          <a href="/" class="border-b-4 border-blue-500 px-2 py-4 font-semibold text-blue-500 dark:text-blue-400">Login</a>
+          <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Feed</a>
+          <a href="/profile/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Profile</a>
         </div>
-      </nav>
-    </header>
-
-    <main class="container mx-auto my-7">
-      <section class="mx-auto max-w-md rounded-lg bg-white p-8 shadow-lg">
-        <h1 class="text-center text-3xl font-bold text-blue-500">Welcome</h1>
-        <!-- Toggle Buttons for Login/Register -->
-        <div class="mb-6 mt-6 flex justify-center">
-          <button
-            id="login-btn"
-            class="border-b-2 border-blue-500 px-4 py-2 font-semibold text-blue-500"
-            onclick="toggleForm('login')"
-          >
-            Login
-          </button>
-          <button
-            id="register-btn"
-            class="px-4 py-2 font-semibold text-gray-500 hover:text-blue-500"
-            onclick="toggleForm('register')"
-          >
-            Register
+        <div class="flex items-center space-x-4">
+          <!-- Dark Mode Toggle Button -->
+          <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition">
+            <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" viewBox="0 0 20 20" fill="currentColor">
+              <path id="sun-icon" d="M10 4.5a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM10 14a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM15.364 7.364a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM5.343 12.657a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+              <path id="moon-icon" class="hidden" d="M10 2a8 8 0 100 16c4.418 0 8-3.582 8-8S14.418 2 10 2z"/>
+            </svg>
           </button>
         </div>
+      </div>
+    </nav>
+  </header>
 
-        <!-- Login Form -->
-        <form id="login-form" action="/profile" method="POST" class="space-y-6">
-          <div>
-            <label
-              for="login-email"
-              class="block text-sm font-medium text-gray-700"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="login-email"
-              name="email"
-              required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div>
-            <label
-              for="login-password"
-              class="block text-sm font-medium text-gray-700"
-              >Password</label
-            >
-            <input
-              type="password"
-              id="login-password"
-              name="password"
-              required
-              minlength="8"
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Enter your password"
-            />
-          </div>
-          <button
-            type="submit"
-            class="w-full rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500"
-          >
-            Login
-          </button>
-        </form>
+  <!-- Main Authentication Section -->
+  <main class="container mx-auto my-7">
+    <section class="mx-auto max-w-md p-8 bg-white rounded-lg shadow-lg dark:bg-gray-900">
+      <h1 class="text-3xl font-bold text-center text-blue-500">Welcome</h1>
 
-        <!-- Register Form -->
-        <form
-          id="register-form"
-          action="/profile"
-          method="POST"
-          class="hidden space-y-6"
+      <!-- Toggle Buttons for Login/Register -->
+      <div class="flex justify-center mt-6 mb-6 space-x-4">
+        <button
+          id="login-btn"
+          class="border-b-2 border-blue-500 px-4 py-2 font-semibold text-blue-500 dark:text-blue-400"
+          onclick="toggleForm('login')"
         >
-          <div>
-            <label
-              for="register-username"
-              class="block text-sm font-medium text-gray-700"
-              >Username</label
-            >
-            <input
-              type="text"
-              id="register-username"
-              name="username"
-              required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Choose a username"
-            />
-          </div>
-          <div>
-            <label
-              for="register-email"
-              class="block text-sm font-medium text-gray-700"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="register-email"
-              name="email"
-              required
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div>
-            <label
-              for="register-password"
-              class="block text-sm font-medium text-gray-700"
-              >Password</label
-            >
-            <input
-              type="password"
-              id="register-password"
-              name="password"
-              required
-              minlength="8"
-              class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Create a password"
-            />
-          </div>
-          <button
-            type="submit"
-            class="w-full rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500"
-          >
-            Register
-          </button>
-          <div class="text-center">
-            <small>Already have an account? <a href="" class="text-decoration-none">Login</a></small>
-          </div>
+          Login
+        </button>
+        <button
+          id="register-btn"
+          class="px-4 py-2 font-semibold text-gray-500 hover:text-blue-500 dark:text-gray-300"
+          onclick="toggleForm('register')"
+        >
+          Register
+        </button>
+      </div>
 
-           <!-- Error/ success message-->
-           <div id="errorMessages" style="color: red;"></div>
-           <div id="successMessages" style="color: green;"></div>
- 
-        </form>
-      </section>
-    </main>
+      <!-- Login Form -->
+      <form id="login-form" action="/profile" method="POST" class="space-y-6">
+        <div>
+          <label for="login-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+          <input type="email" id="login-email" name="email" required class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Enter your email" />
+        </div>
+        <div>
+          <label for="login-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+          <input type="password" id="login-password" name="password" required minlength="8" class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Enter your password" />
+        </div>
+        <button type="submit" class="w-full rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500">Login</button>
+        <div id="errorMessages" class="text-red-500 text-center mt-4"></div>
+        <div id="successMessages" class="text-green-500 text-center mt-4"></div>
+      </form>
 
-    <footer class="bg-white py-5 dark:bg-slate-900">
-      <p class="container mx-auto text-center text-gray-500 dark:text-slate-300">&copy; 2024 Social Media App</p>
-    </footer>
+      <!-- Register Form -->
+      <form id="register-form" action="/profile" method="POST" class="hidden space-y-6">
+        <div>
+          <label for="register-username" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Username</label>
+          <input type="text" id="register-username" name="username" required class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Choose a username" />
+        </div>
+        <div>
+          <label for="register-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+          <input type="email" id="register-email" name="email" required class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Enter your email" />
+        </div>
+        <div>
+          <label for="register-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+          <input type="password" id="register-password" name="password" required minlength="8" class="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Create a password" />
+        </div>
+        <button type="submit" class="w-full rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500">Register</button>
+        <div id="errorMessages" class="text-red-500 text-center mt-4"></div>
+        <div id="successMessages" class="text-green-500 text-center mt-4"></div>
+      </form>
+    </section>
+  </main>
 
-    <script>
-      function toggleForm(form) {
-        const loginForm = document.getElementById("login-form");
-        const registerForm = document.getElementById("register-form");
-        const loginBtn = document.getElementById("login-btn");
-        const registerBtn = document.getElementById("register-btn");
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-slate-900 py-5">
+    <p class="container mx-auto text-center text-gray-500 dark:text-slate-300">&copy; 2024 Social Media App</p>
+  </footer>
 
-        if (form === "login") {
-          loginForm.classList.remove("hidden");
-          registerForm.classList.add("hidden");
-          loginBtn.classList.add("border-blue-500", "text-blue-500");
-          registerBtn.classList.remove("border-blue-500", "text-blue-500");
-          registerBtn.classList.add("text-gray-500");
-        } else {
-          loginForm.classList.add("hidden");
-          registerForm.classList.remove("hidden");
-          registerBtn.classList.add("border-blue-500", "text-blue-500");
-          loginBtn.classList.remove("border-blue-500", "text-blue-500");
-          loginBtn.classList.add("text-gray-500");
-        }
+  <!-- Script to Toggle Forms -->
+  <script>
+    function toggleForm(form) {
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+      const loginBtn = document.getElementById("login-btn");
+      const registerBtn = document.getElementById("register-btn");
+
+      if (form === "login") {
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+        loginBtn.classList.add("border-blue-500", "text-blue-500");
+        registerBtn.classList.remove("border-blue-500", "text-blue-500");
+        registerBtn.classList.add("text-gray-500");
+      } else {
+        loginForm.classList.add("hidden");
+        registerForm.classList.remove("hidden");
+        registerBtn.classList.add("border-blue-500", "text-blue-500");
+        loginBtn.classList.remove("border-blue-500", "text-blue-500");
+        loginBtn.classList.add("text-gray-500");
       }
-    </script> 
-  </body>
+    }
+  </script>
+</body>
 </html>
+

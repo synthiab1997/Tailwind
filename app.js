@@ -1,15 +1,15 @@
-import "css/style.css"
+import "./css/style.css"
 
-import router from "./js/router";
+import router from "./src/js/router";
 
 await router(window.location.pathname);
 
 // src/index.js
 
-import { createPost } from './api/post/create.js';
-import { readPosts } from './api/post/read.js';
-import { updatePost } from './api/post/update.js';
-import { deletePost } from './api/post/delete.js';
+import { createPost } from './src/js/api/post/create'
+import { readPosts } from './src/js/api/post/read';
+import { updatePost } from './src/js/api/post/update';
+import { deletePost } from './src/js/api/post/delete';
 
 async function initializeApp() {
     const token = localStorage.getItem('jwtToken'); // Get the JWT token from local storage
@@ -39,5 +39,6 @@ async function loadPosts(token) {
 
 // Call the initialize function
 initializeApp();
+
 
 

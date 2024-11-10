@@ -1,32 +1,36 @@
-import { API_BASE_URL } from "./constants.js";
+import { API_AUTH_LOGIN, API_KEY } from "../constants.js";
 
 async function loginUser(email, password) {
     const errorMessages = document.getElementById("errorMessages");
     const successMessages = document.getElementById("successMessages");
 
     try {
-        const response = await fetch(`${API_BASE_URL}/social/auth/login`, {
+        const response = await fetch(API_AUTH_LOGIN, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'x-api-key': API_KEY,
             },
             body: JSON.stringify({ email, password }),
         });
 
-        const data = await response.json();
-        if (response.ok) {
-            const accessToken = data.token;
+        const result = await response.json();
+        console.log("API Response:", result); // Log the response for debugging
+
+        if (response.ok && result.data && result.data.accessToken) {
+            // Extract the accessToken from the nested data structure
+            const accessToken = result.data.accessToken;
             localStorage.setItem("accessToken", accessToken);
 
-            // Extract and store userId if required
-            const userId = JSON.parse(atob(accessToken.split('.')[1])).sub;
-            localStorage.setItem('userId', userId);
+            // Optional: Store other user details as needed
+            localStorage.setItem("username", result.data.name);
+            localStorage.setItem("userEmail", result.data.email);
 
-            // Display success message and redirect with delay
             successMessages.innerText = "Login successful! Redirecting...";
-            setTimeout(() => window.location.href = "posts.html", 800);
+            setTimeout(() => window.location.href = "profile.html", 800); // Adjust redirection as needed
         } else {
-            errorMessages.innerText = `Error: ${data.message}`;
+            // Display error if no token is present or response is not OK
+            errorMessages.innerText = `Error: ${result.data.message || 'Invalid login'}`;
         }
     } catch (error) {
         errorMessages.innerText = "An error occurred during login.";
@@ -34,12 +38,12 @@ async function loginUser(email, password) {
     }
 }
 
-document.getElementById('loginForm')?.addEventListener('submit', (event) => {
+// Attach event listener for form submission
+document.getElementById('login-form')?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
 
-    // Basic validation
     if (!email || !password) {
         document.getElementById("errorMessages").innerText = "Both email and password are required.";
         return;
@@ -47,5 +51,3 @@ document.getElementById('loginForm')?.addEventListener('submit', (event) => {
 
     loginUser(email, password);
 });
-
-

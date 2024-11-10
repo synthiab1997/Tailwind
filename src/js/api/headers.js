@@ -1,5 +1,4 @@
 
-
 /**
  * Generates headers for API requests, including API key and authorization token if available.
  * @param {boolean} includeContentType - Whether to include 'Content-Type' in headers (usually for requests with a body).

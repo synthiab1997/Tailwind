@@ -9,99 +9,108 @@
   <script type="module" src="/app.js"></script>
   <script src="/src/js/script.js" defer></script> 
 </head>
-<body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-gray-100 dark:bg-slate-800 text-gray-100">
 
-  <!-- Header with Navigation and Dark Mode Toggle -->
+<body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-gray-100 dark:bg-slate-800 text-gray-100">
   <header class="bg-white dark:bg-slate-900 shadow-lg">
-    <nav class="container mx-auto">
+    <nav class="container mx-auto px-2 py-2">
       <div class="flex justify-between items-center">
         <a href="/" class="flex items-center px-2 py-4">
           <img src="/images/noroff-logo.png" alt="Noroff logo" class="img" />
         </a>
-
-      <!-- Desktop Navigation Links -->
-      <div class="hidden space-x-4 md:flex">
-        <a href="/index.html" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Login</a>
-        <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Feed</a>
-        <a href="/" class="border-b-4 border-blue-500 px-2 py-4 font-semibold text-blue-500 dark:text-blue-400">Profile</a>
-      </div>
-
-        <!-- Dark Mode Toggle -->
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition">
-          <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" viewBox="0 0 20 20" fill="currentColor">
-            <path id="sun-icon" d="M10 4.5a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM10 14a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM15.364 7.364a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM5.343 12.657a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
-            <path id="moon-icon" class="hidden" d="M10 2a8 8 0 100 16c4.418 0 8-3.582 8-8S14.418 2 10 2z"/>
-          </svg>
-        </button>
+        <div class="hidden items-center space-x-1 md:flex">
+          <a href="/index.html" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300" >Login</a>
+          <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Feed</a>
+          <a href="/" class="border-b-4 border-blue-500 px-2 py-4 font-semibold text-blue-500 dark:text-blue-400">Profile</a>
+        </div>
+        <div class="flex items-center space-x-4">
+      <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 4.5a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM10 14a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM15.364 7.364a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM5.343 12.657a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+          <path id="moon-icon" class="hidden" d="M10 2a8 8 0 100 16c4.418 0 8-3.582 8-8S14.418 2 10 2z"/>
+        </svg>
+      </button>
     </nav>
   </header>
 
   <!-- Profile Content -->
   <main class="container mx-auto my-7">
-    <div id="profile-container" class="flex flex-col items-center rounded-lg bg-gray-900 p-6 shadow-lg text-gray-200">
-      <!-- Profile Banner and Avatar -->
-      <div class="relative w-full h-36 rounded-t-lg bg-gray-800 mb-8">
-        <img id="profile-banner" class="w-full h-full object-cover rounded-t-lg" alt="Profile Banner" />
-        <div class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2">
-          <img id="/images/noroff-logo.png" class="w-24 h-24 rounded-full border-4 border-white object-cover shadow-lg" alt="Profile Avatar" />
-        </div>
+    <!-- Profile Header -->
+    <section class="text-center border-b pb-6">
+      <img class="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4" src="https://randomuser.me/api/portraits/women/21.jpg" alt="Profile Image">
+      <h3 class="font-bold text-2xl text-gray-800 dark:text-white">Lily Bloom</h3>
+      <p class="text-gray-600 dark:text-gray-300">Oslo, Norway</p>
+      <!-- Follow / Unfollow Buttons -->
+      <div class="flex justify-center gap-4 my-4">
+        <button id="follow-btn" class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700">Follow</button>
+        <button id="unfollow-btn" class="px-4 py-2 rounded-full bg-gray-500 text-white hover:bg-gray-600 hidden">Unfollow</button>
       </div>
-
-      <!-- Profile Info -->
-      <div class="text-center mt-10">
-        <h2 id="profile-name" class="text-2xl font-semibold">Username</h2>
-        <p id="profile-bio" class="mt-2 text-gray-400">Bio goes here</p>
+      <br>
+      <!-- Followers / Following Count -->
+      <div class="flex justify-center gap-6 text-gray-300">
+        <p>Followers: <span class="text-blue-400">120</span></p>
+        <p>Following: <span class="text-blue-400">75</span></p>
       </div>
+      <br>
+      <!-- Bio Section -->
+      <p class="mt-4 text-gray-400">Enthusiast of art, photography, and tech. Sharing moments and connecting with the world.</p>
+    </section>
 
-      <!-- Follow/Following Section -->
-      <div class="flex gap-6 my-4 text-gray-300">
-        <p id="follower-count">Followers: <span class="text-blue-400">0</span></p>
-        <p id="following-count">Following: <span class="text-blue-400">0</span></p>
-      </div>
-      <div class="flex gap-4 mb-6">
-        <button id="follow-btn" class="px-4 py-2 bg-blue-600 rounded-md text-white hover:bg-blue-700">Follow</button>
-        <button id="unfollow-btn" class="px-4 py-2 bg-gray-500 rounded-md text-white hover:bg-gray-600 hidden">Unfollow</button>
-      </div>
-
-      <!-- Profile Update Form -->
-      <form name="updateProfile" class="w-full max-w-md mx-auto flex flex-col space-y-4">
-        <label for="avatar-url">Avatar URL</label>
-        <input type="url" name="avatar-url" class="p-2 rounded-md text-black" placeholder="Insert image URL" />
-
-        <label for="avatar-alt">Avatar Alt</label>
-        <input type="text" name="avatar-alt" class="p-2 rounded-md text-black" placeholder="Alt text for your image" />
-
-        <label for="banner-url">Banner URL</label>
-        <input type="url" name="banner-url" class="p-2 rounded-md text-black" placeholder="Insert image URL" />
-
-        <label for="banner-alt">Banner Alt</label>
-        <input type="text" name="banner-alt" class="p-2 rounded-md text-black" placeholder="Alt text for your image" />
-
-        <label for="bio">Bio</label>
-        <textarea name="bio" class="p-2 rounded-md text-black" placeholder="Write a bio about yourself"></textarea>
-
-        <button type="submit" class="p-2  text-blue-400 rounded-md text-gray-50 hover:bg-blue-700">Save Profile</button>
-      </form>
+    <!-- Profile Update Form Container -->
+<section class="mt-10 max-w-md mx-auto p-6 bg-gray-100 dark:bg-slate-900 rounded-lg shadow-lg">
+  <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center">Update Profile</h4>
+  <form name="updateProfile" class="space-y-4">
+    <div>
+      <label for="avatar-url" class="block text-sm font-bold text-gray-700 dark:text-gray-300">Avatar URL</label>
+      <input type="url" name="avatar-url" placeholder="Insert image URL" class="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
     </div>
+    <div>
+      <label for="banner-url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Banner URL</label>
+      <input type="url" name="banner-url" placeholder="Insert image URL" class="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+    </div>
+    <div>
+      <label for="bio" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Bio</label>
+      <textarea name="bio" rows="3" placeholder="Write a bio about yourself" class="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600"></textarea>
+    </div>
+    <button type="submit" class="w-full p-2 rounded-full bg-blue-500 text-white font-semibold hover:bg-blue-600">Save Profile</button>
+  </form>
+</section>
+
 
     <!-- User Posts Section -->
-    <section id="own-posts-container" class="mt-10 p-4 border border-gray-700 rounded-lg bg-gray-100 dark:bg-slate-900">
-      <h3 class="text-xl font-semibold text-center text-blue-600">My Posts</h3>
-      <div id="postsContainer" class="grid gap-4 mt-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>
+    <section class="mt-10 p-6 bg-gray-100 dark:bg-slate-900 rounded-lg shadow-lg">
+      <h4 class="text-xl font-semibold text-center text-blue-600">My Posts</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <!-- Post Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <img src="/images/noroff-logo.png" alt="Post Image" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h5 class="font-bold text-gray-800 dark:text-gray-200">Post Title</h5>
+            <p class="text-gray-700 dark:text-gray-400 mt-2">Short description of the post content...</p>
+            <div class="flex justify-between items-center mt-4 text-gray-500 text-sm">
+              <span>20 Likes</span>
+              <a href="#" class="text-blue-500 dark:text-blue-400">Read More</a>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <img src="/images/noroff-logo.png" alt="Post Image" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h5 class="font-bold text-gray-800 dark:text-gray-200">Post Title</h5>
+            <p class="text-gray-700 dark:text-gray-400 mt-2">Short description of the post content...</p>
+            <div class="flex justify-between items-center mt-4 text-gray-500 text-sm">
+              <span>20 Likes</span>
+              <a href="#" class="text-blue-500 dark:text-blue-400">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 p-4 text-gray-400 dark:bg-slate-900 dark:text-slate-300">
-    <div class="max-w-screen-xl mx-auto text-center">
-      <p>© 2024 Social Media App. All Rights Reserved.</p>
-      <nav class="flex justify-center space-x-4 mt-4">
-        <a href="#" class="hover:underline">About</a>
-        <a href="#" class="hover:underline">Privacy Policy</a>
-        <a href="#" class="hover:underline">Contact</a>
-      </nav>
-    </div>
+  <footer class="bg-white dark:bg-slate-900 py-5">
+    <p class="container mx-auto text-center text-gray-500 dark:text-gray-400">&copy; 2024 Social Media App. All rights reserved.</p>
   </footer>
 </body>
 </html>
-
