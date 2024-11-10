@@ -12,6 +12,7 @@
 
 <body class="grid min-h-screen grid-rows-[auto_1fr_auto] bg-gray-100 dark:bg-slate-800 text-gray-100">
   <header class="bg-white dark:bg-slate-900 shadow-lg">
+<<<<<<< HEAD
     <nav class="container mx-auto px-2 py-2">
       <div class="flex justify-between items-center">
         <a href="/" class="flex items-center px-2 py-4">
@@ -23,6 +24,18 @@
           <a href="/" class="border-b-4 border-blue-500 px-2 py-4 font-semibold text-blue-500 dark:text-blue-400">Profile</a>
         </div>
         <div class="flex items-center space-x-4">
+=======
+    <nav class="container mx-auto flex justify-between items-center px-4 py-4">
+      <a href="/" class="flex items-center">
+        <img src="/images/noroff-logo.png" alt="Noroff logo" class="h-10 w-10 rounded-full" />
+        <span class="ml-3 text-xl font-semibold text-gray-800 dark:text-gray-100">Social Media App</span>
+      </a>
+      <div class="hidden space-x-4 md:flex">
+        <a href="/index.html" class="px-4 py-2 text-gray-500 hover:text-blue-500 dark:text-gray-300">Login</a>
+        <a href="/feed/" class="px-4 py-2 text-gray-500 hover:text-blue-500 dark:text-gray-300">Feed</a>
+        <a href="/" class="border-b-4 border-blue-500 px-4 py-2 text-blue-500 dark:text-blue-400">Profile</a>
+      </div>
+>>>>>>> 022502faf6b0e08e0662b6a5dbde2cc4e00ee967
       <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition">
         <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 dark:text-gray-200" viewBox="0 0 20 20" fill="currentColor">
           <path d="M10 4.5a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM10 14a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1a.5.5 0 01.5-.5zM15.364 7.364a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM5.343 12.657a.5.5 0 11-.707-.707l.707-.707a.5.5 0 01.707.707l-.707.707zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -44,17 +57,24 @@
         <button id="follow-btn" class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700">Follow</button>
         <button id="unfollow-btn" class="px-4 py-2 rounded-full bg-gray-500 text-white hover:bg-gray-600 hidden">Unfollow</button>
       </div>
+<<<<<<< HEAD
       <br>
+=======
+>>>>>>> 022502faf6b0e08e0662b6a5dbde2cc4e00ee967
       <!-- Followers / Following Count -->
       <div class="flex justify-center gap-6 text-gray-300">
         <p>Followers: <span class="text-blue-400">120</span></p>
         <p>Following: <span class="text-blue-400">75</span></p>
       </div>
+<<<<<<< HEAD
       <br>
+=======
+>>>>>>> 022502faf6b0e08e0662b6a5dbde2cc4e00ee967
       <!-- Bio Section -->
       <p class="mt-4 text-gray-400">Enthusiast of art, photography, and tech. Sharing moments and connecting with the world.</p>
     </section>
 
+<<<<<<< HEAD
     <!-- Profile Update Form Container -->
 <section class="mt-10 max-w-md mx-auto p-6 bg-gray-100 dark:bg-slate-900 rounded-lg shadow-lg">
   <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center">Update Profile</h4>
@@ -75,6 +95,27 @@
   </form>
 </section>
 
+=======
+    <!-- Profile Update Form -->
+    <section class="mt-10 max-w-md mx-auto">
+      <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center">Update Profile</h4>
+      <form name="updateProfile" class="space-y-4">
+        <div>
+          <label for="avatar-url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Avatar URL</label>
+          <input type="url" name="avatar-url" placeholder="Insert image URL" class="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+        </div>
+        <div>
+          <label for="banner-url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Banner URL</label>
+          <input type="url" name="banner-url" placeholder="Insert image URL" class="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+        </div>
+        <div>
+          <label for="bio" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Bio</label>
+          <textarea name="bio" rows="3" placeholder="Write a bio about yourself" class="w-full p-2 rounded-md bg-gray-100 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600"></textarea>
+        </div>
+        <button type="submit" class="w-full p-2 rounded-md bg-blue-500 text-white font-semibold hover:bg-blue-600">Save Profile</button>
+      </form>
+    </section>
+>>>>>>> 022502faf6b0e08e0662b6a5dbde2cc4e00ee967
 
     <!-- User Posts Section -->
     <section class="mt-10 p-6 bg-gray-100 dark:bg-slate-900 rounded-lg shadow-lg">

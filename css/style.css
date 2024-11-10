@@ -377,7 +377,11 @@ html.dark input[type="file"] {
 
 .small-image {
   max-width: 100%;
+<<<<<<< HEAD
   height: 100px; /* Adjust this to the desired height */
+=======
+  height: 150px; /* Adjust this to the desired height */
+>>>>>>> 022502faf6b0e08e0662b6a5dbde2cc4e00ee967
   object-fit: cover; /* Ensures the image fills the area without distortion */
 }
 
