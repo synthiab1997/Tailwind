@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authentication - Social Media App</title>
+    <title>Authentication</title>
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="/src/js/api/auth/login.js"></script>
     <script type="module" src="/src/js/api/auth/register.js"></script>
@@ -20,9 +20,9 @@
             <img src="/images/noroff-logo.png" alt="Noroff logo" class="img" />
           </a>
           <div class="hidden items-center space-x-1 md:flex">
-            <a href="/" class="border-b-4 border-green-500 px-2 py-4 font-semibold text-green-500 dark:text-green-400">Login</a>
-            <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-green-500 dark:text-gray-300">Feed</a>
-            <a href="/profile/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-green-500 dark:text-gray-300">Profile</a>
+            <a href="/" class="border-b-4 border-blue-500 px-2 py-4 font-semibold text-blue-500 dark:text-blue-400">Login</a>
+            <a href="/feed/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Feed</a>
+            <a href="/profile/" class="px-2 py-4 font-semibold text-gray-500 transition duration-300 hover:text-blue-500 dark:text-gray-300">Profile</a>
           </div>
           <div class="flex items-center space-x-4">
             <!-- Dark Mode Toggle Button -->
@@ -161,6 +161,11 @@
           <div class="text-center">
             <small>Already have an account? <a href="" class="text-decoration-none">Login</a></small>
           </div>
+
+           <!-- Error/ success message-->
+           <div id="errorMessages" style="color: red;"></div>
+           <div id="successMessages" style="color: green;"></div>
+ 
         </form>
       </section>
     </main>

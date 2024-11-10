@@ -1,5 +1,3 @@
-// script.js
-
 // Dark Mode Toggle Functionality
 document.addEventListener("DOMContentLoaded", function () {
     const themeToggle = document.getElementById('theme-toggle');
@@ -25,5 +23,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
-  // Other features and scripts can go here...
+ 
   

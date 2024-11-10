@@ -1,4 +1,4 @@
-import "./css/style.css";
+import "css/style.css"
 
 import router from "./js/router";
 
@@ -39,4 +39,5 @@ async function loadPosts(token) {
 
 // Call the initialize function
 initializeApp();
+
 
